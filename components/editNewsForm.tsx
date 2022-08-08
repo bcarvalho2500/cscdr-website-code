@@ -57,7 +57,7 @@ const EditNewsForm: NextPage<Props> = (props) => {
 			})
 
 			const descriptionArea: HTMLElement | null = document.getElementById('descriptionArea')
-			descriptionArea!.value = ''
+			descriptionArea.value = ''
 
 			event.target[0].value = null
 			
