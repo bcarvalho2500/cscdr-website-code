@@ -11,6 +11,7 @@ import EditNewsForm from '../components/editNewsForm'
 import Footer from '../components/footer'
 import Navbar from '../components/navbar'
 import { INews } from '../types/inews'
+import { server } from '../config'
 
 const News: NextPage<{ results: any; mdDescription: any }> = (props) => {
 	const { user } = useUser()
@@ -237,7 +238,7 @@ const News: NextPage<{ results: any; mdDescription: any }> = (props) => {
 }
 
 export async function getServerSideProps() {
-	const res = await fetch('http://localhost:3000/api/news', { method: 'GET' })
+	const res = await fetch(`${server}/api/news`, { method: 'GET' })
 	const data = await res.json()
 	const results = data.message
 

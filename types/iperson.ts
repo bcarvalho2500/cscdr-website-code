@@ -1,5 +1,6 @@
 export interface IPerson {
     name: string,
-    url: string,
-    category: string
+    homepageUrl: string,
+    category: string,
+    imageUrl: string
 }

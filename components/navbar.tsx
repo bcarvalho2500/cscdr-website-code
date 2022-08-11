@@ -113,17 +113,6 @@ const Navbar: NextComponentType = () => {
 										Events
 									</a>
 								</Link>
-								<Link href="/opportunities">
-									<a
-										className={
-											router.pathname == '/opportunities'
-												? 'py-4 px-3 text-red-500 border-b-4 border-red-500 font-semibold'
-												: 'py-4 px-3 text-white font-semibold hover:text-red-500 transition duration-300'
-										}
-									>
-										Opportunities
-									</a>
-								</Link>
 								<Link href="/seminars">
 									<a
 										className={
@@ -259,19 +248,6 @@ const Navbar: NextComponentType = () => {
 									}
 								>
 									Events
-								</a>
-							</Link>
-						</li>
-						<li>
-							<Link href="/opportunities">
-								<a
-									className={
-										router.pathname == '/opportunities'
-											? 'block text-sm px-2 py-4 text-white bg-red-500 font-semibold'
-											: 'block text-sm px-2 py-4 text-white hover:bg-red-500 transition duration-300'
-									}
-								>
-									Opportunities
 								</a>
 							</Link>
 						</li>

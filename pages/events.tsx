@@ -8,6 +8,7 @@ import CreateEventForm from '../components/createEventForm'
 import EditEventForm from '../components/editEventForm'
 import Footer from '../components/footer'
 import Navbar from '../components/navbar'
+import { server } from '../config'
 import { IEvents } from '../types/ievents'
 
 const Events: NextPage<{ results: any }> = (props) => {
@@ -186,7 +187,7 @@ const Events: NextPage<{ results: any }> = (props) => {
 }
 
 export async function getServerSideProps() {
-	const res = await fetch('http://localhost:3000/api/event', {
+	const res = await fetch(`${server}/api/event`, {
 		method: 'GET',
 	})
 	const data = await res.json()

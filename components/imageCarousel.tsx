@@ -34,7 +34,7 @@ const ImageCarousel: NextPage<Props> = ({ images }) => {
                         key={index}
                     >
                         <Image
-                            src={`/images/${image}`}
+                            src={image}
                             layout='fill'
                             objectFit='contain'
                             className='bg-black'
