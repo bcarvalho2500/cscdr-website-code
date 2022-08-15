@@ -80,7 +80,7 @@ const EditEventForm: NextPage<Props> = (props) => {
 							Title
 						</label>
 						<input
-							className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'
+							className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none  '
 							id='title'
 							name='title'
 							onChange={handleChange}
@@ -99,7 +99,7 @@ const EditEventForm: NextPage<Props> = (props) => {
 							Organized By
 						</label>
 						<input
-							className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'
+							className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none  '
 							id='organizedBy'
 							name='organizedBy'
 							onChange={handleChange}
@@ -118,7 +118,7 @@ const EditEventForm: NextPage<Props> = (props) => {
 							Start Date
 						</label>
 						<input
-							className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+							className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none   focus:border-gray-500'
 							id='startDate'
 							name='startDate'
 							onChange={handleChange}
@@ -134,7 +134,7 @@ const EditEventForm: NextPage<Props> = (props) => {
 							End Date
 						</label>
 						<input
-							className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+							className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none   focus:border-gray-500'
 							id='startDate'
 							name='endDate'
 							onChange={handleChange}
@@ -150,7 +150,7 @@ const EditEventForm: NextPage<Props> = (props) => {
 							Time
 						</label>
 						<input
-							className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+							className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none   focus:border-gray-500'
 							id='time'
 							name='time'
 							onChange={handleChange}
@@ -168,7 +168,7 @@ const EditEventForm: NextPage<Props> = (props) => {
 							Location
 						</label>
 						<input
-							className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'
+							className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none  '
 							id='location'
 							name='location'
 							onChange={handleChange}
@@ -188,7 +188,7 @@ const EditEventForm: NextPage<Props> = (props) => {
 						</label>
 						<textarea
 							id='descriptionArea'
-							className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+							className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none   focus:border-gray-500'
 							rows={20}
 							name='additionalDetails'
 							onChange={handleChange}

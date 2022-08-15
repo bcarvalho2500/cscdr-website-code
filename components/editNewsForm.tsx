@@ -97,7 +97,7 @@ const EditNewsForm: NextPage<Props> = (props) => {
 						<label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="name">
 							Title
 						</label>
-						<input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="name" name="name" onChange={handleChange} value={newsData.name} type="text" placeholder="..." />
+						<input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none  " id="name" name="name" onChange={handleChange} value={newsData.name} type="text" placeholder="..." />
 					</div>
 				</div>
 				<div className="flex flex-wrap mx-3 mb-6 mt-4 items-center">
@@ -105,7 +105,7 @@ const EditNewsForm: NextPage<Props> = (props) => {
 						<label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="date">
 							Date
 						</label>
-						<input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="date" name="date" onChange={handleChange} value={newsData.date} type="date" />
+						<input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none   focus:border-gray-500" id="date" name="date" onChange={handleChange} value={newsData.date} type="date" />
 					</div>
 					<div className="w-full md:w-1/2 px-3">
 						<label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="picture">
@@ -119,7 +119,7 @@ const EditNewsForm: NextPage<Props> = (props) => {
 						<label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="description">
 							Description (Accepts Markdown)
 						</label>
-						<textarea id='descriptionArea'className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" rows={15}name='description' value={newsData.description} onChange={handleChange}></textarea>
+						<textarea id='descriptionArea'className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none   focus:border-gray-500" rows={15}name='description' value={newsData.description} onChange={handleChange}></textarea>
 					</div>
 				</div>
 				

@@ -6,6 +6,7 @@ import AddPersonForm from '../components/addPersonForm'
 import EditPersonForm from '../components/editPersonForm'
 import Footer from '../components/footer'
 import Navbar from '../components/navbar'
+import { server } from '../config'
 import { IPerson } from '../types/iperson'
 
 const People: NextPage<{ peopleData: IPerson[] }> = (props) => {
@@ -16,10 +17,18 @@ const People: NextPage<{ peopleData: IPerson[] }> = (props) => {
 	const [createMode, setCreateMode] = useState(false)
 	const [editMode, setEditMode] = useState(false)
 	const [personData, setPersonData] = useState<IPerson>({
-		name: '',
+		firstName: '',
+		lastName: '',
 		homepageUrl: '',
 		category: '',
 		imageUrl: '',
+		affiliation: '',
+		advisor: '',
+		email: '',
+		position: '',
+		interests: '',
+		department: '',
+		subtitle: '',
 	})
 
     const AddItemsBtn = () => {
@@ -56,6 +65,100 @@ const People: NextPage<{ peopleData: IPerson[] }> = (props) => {
 
 		return(
 			<>
+				<div className="flex justify-between my-4">
+					<div className='flex flex-col'>
+						<div className='cursor-pointer underline font-semibold'>Directorate</div>
+						{props.peopleData.filter((person: IPerson) => {
+							if (person.category === 'Directorate'){
+								return person
+							}
+						})
+						.map((person: IPerson) => {
+							return (
+								<div key={person._id}>
+									<a className={person.homepageUrl !== '' ? 'text-red-600' : void(0)} href={person.homepageUrl !== '' ? person.homepageUrl : void(0)} target='_blank' rel="noopener noreferrer">{ person.firstName + ' ' + person.lastName }</a>
+								</div>	
+							)
+						})
+						}
+					</div>
+					<div className='flex flex-col'>
+						<div className='cursor-pointer underline font-semibold'>Faculty</div>
+						{props.peopleData.filter((person: IPerson) => {
+							if (person.category === 'Faculty') {
+								return person
+							}
+						})
+						.map((person: IPerson) => {
+							return (
+								<div key={person._id}>
+									<a className={person.homepageUrl !== '' ? 'text-red-600' : void(0)} href={person.homepageUrl !== '' ? person.homepageUrl : void(0)} target='_blank' rel="noopener noreferrer">{ person.firstName + ' ' + person.lastName }</a>
+								</div>	
+							)
+						})
+						}
+					</div>
+					<div className='flex flex-col'>
+						<div className='cursor-pointer underline font-semibold'>Ph.D. Students</div>
+						{props.peopleData.filter((person: IPerson) => {
+							if (person.category === 'Ph.D Student') {
+								return person
+							}
+						})
+						.map((person: IPerson) => {
+							return (
+								<div key={person._id}>
+									<a className={person.homepageUrl !== '' ? 'text-red-600' : void(0)} href={person.homepageUrl !== '' ? person.homepageUrl : void(0)} target='_blank' rel="noopener noreferrer">{ person.firstName + ' ' + person.lastName }</a>
+								</div>	
+							)
+						})
+						}
+					</div>
+				</div>
+				<div className='flex flex-col w-auto my-4'>
+						<span className='cursor-pointer font-semibold w-auto'>Computing Support</span>
+						<hr className='border-black border mb-2' />
+						<div className='flex justify-between'>
+							<div className='font-semibold'>Name</div>
+							<div className='font-semibold'>Affiliation</div>
+						</div>
+						{props.peopleData.filter((person: IPerson) => {
+							if (person.category === 'Computing Support') {
+								return person
+							}
+						})
+						.map((person: IPerson) => {
+							return (
+								<div key={person._id} className='flex justify-between'>
+									<a className={person.homepageUrl !== '' ? 'text-red-600' : void(0)} href={person.homepageUrl !== '' ? person.homepageUrl : void(0)} target='_blank' rel="noopener noreferrer">{ person.firstName + ' ' + person.lastName }</a>
+									<div className=''>{person.affiliation}</div>
+								</div>	
+							)
+						})
+						}
+				</div>
+				<div className='flex flex-col w-full my-4'>
+						<div className='cursor-pointer font-semibold'>Advising Board</div>
+						<hr className='border-black border mb-2' />
+						<div className='flex justify-between'>
+							<div className='font-semibold'>Name</div>
+							<div className='font-semibold'>Affiliation</div>
+						</div>
+						{props.peopleData.filter((person: IPerson) => {
+							if (person.category === 'Advisory Board') {
+								return person
+							}
+						})
+						.map((person: IPerson) => {
+							return (
+								<div key={person._id} className='flex justify-between'>
+									<a className={person.homepageUrl !== '' ? 'text-red-600' : void(0)} href={person.homepageUrl !== '' ? person.homepageUrl : void(0)} target='_blank' rel="noopener noreferrer">{ person.firstName + ' ' + person.lastName }</a>
+									<div className=''>{person.affiliation}</div>
+								</div>	
+							)
+						})
+						}
+				</div>
 			</>
 		)
 	}
@@ -92,3 +195,11 @@ const People: NextPage<{ peopleData: IPerson[] }> = (props) => {
 }
 
 export default People
+
+export async function getServerSideProps() {
+	const res = await fetch(`${server}/api/people`, { method: 'GET' })
+	const data = await res.json()
+	const peopleData = data.message
+
+	return { props: { peopleData } }
+}

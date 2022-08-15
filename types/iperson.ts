@@ -1,6 +1,14 @@
 export interface IPerson {
-    name: string,
+    firstName: string,
+    lastName:string,
     homepageUrl: string,
     category: string,
-    imageUrl: string
+    imageUrl: string,
+    affiliation: string,
+    interests: string,
+    department: string,
+    advisor: string,
+    position: string,
+    email: string,
+    subtitle: string,
 }

@@ -3,6 +3,7 @@ import { MDXRemote } from "next-mdx-remote"
 import { serialize } from "next-mdx-remote/serialize"
 import Footer from "../../components/footer"
 import Navbar from "../../components/navbar"
+import { server } from "../../config"
 
 const SpecificEvent: NextPage<{ event: any }> = props => {
 	return(
@@ -41,7 +42,7 @@ const SpecificEvent: NextPage<{ event: any }> = props => {
 
 export async function getServerSideProps(context: any){
 	const { id } = context.query
-	const response = await fetch(`http:localhost:3000/api/event/${id}`, { method: 'GET'})
+	const response = await fetch(`${server}/api/event/${id}`, { method: 'GET'})
 	const data = await response.json()
 	const event = data.message
 	

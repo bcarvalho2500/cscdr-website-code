@@ -98,7 +98,7 @@ const CreateNewsForm: NextPage<Props> = (props) => {
 							Title
 						</label>
 						<input
-							className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'
+							className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none  '
 							id='name'
 							name='name'
 							onChange={handleChange}
@@ -117,7 +117,7 @@ const CreateNewsForm: NextPage<Props> = (props) => {
 							Date
 						</label>
 						<input
-							className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+							className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none   focus:border-gray-500'
 							id='date'
 							name='date'
 							onChange={handleChange}
@@ -150,7 +150,7 @@ const CreateNewsForm: NextPage<Props> = (props) => {
 						</label>
 						<textarea
 							id='descriptionArea'
-							className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+							className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none   focus:border-gray-500'
 							rows={15}
 							name='description'
 							onChange={handleChange}
