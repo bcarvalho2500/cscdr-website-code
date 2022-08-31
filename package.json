@@ -24,6 +24,8 @@
     "next-connect": "^1.0.0-next.1",
     "next-mdx-remote": "^4.1.0",
     "react": "18.2.0",
+    "react-collapsed": "^3.3.2",
+    "react-csv": "^2.2.2",
     "react-dom": "18.2.0",
     "react-image-gallery": "^1.2.9",
     "react-select": "^5.4.0"

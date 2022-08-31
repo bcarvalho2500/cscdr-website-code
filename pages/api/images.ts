@@ -22,10 +22,10 @@ function getImages(req: NextApiRequest, res: NextApiResponse){
 		
 		const filenames = fs.readdirSync(dir);
 		
-		const images = filenames.map(name => path.join('/', dirRelativeToPublicFolder, name))
+		//const images = filenames.map(name => path.join('/', dirRelativeToPublicFolder, name))
 		
 		return res.json({
-				data: JSON.parse(JSON.stringify(images)),
+				data: JSON.parse(JSON.stringify(filenames)),
 				success: true
 			})
 	} catch(error) {

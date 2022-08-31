@@ -1,10 +1,10 @@
 export interface ISeminars {
-    date: Date,
-    time: Date,
-    day: string,
+    date_time: string,
     location: string,
     speaker: string,
     university: string,
     title: string,
-    abstract: string
+    abstract: string,	 
+	website: string,
+	type: string
 }

@@ -20,11 +20,11 @@ const SpecificEvent: NextPage<{ event: any }> = props => {
 						<div className="text-lg">{props.event.organizedBy}</div>
 					</div>
 					<div className="flex mb-1">
-						<div>Start Date: {new Date(props.event.startDate).toString().slice(4, 15)} @ {new Date("2000-01-01 " + props.event.time).toLocaleTimeString('en-us', {hour: "numeric", hour12: true, minute: '2-digit'})}</div>
+						<div>Start Date: {new Date(props.event.startDate).toUTCString().slice(5, 16)} @ {new Date("2000-01-01 " + props.event.time).toLocaleTimeString('en-us', {hour: "numeric", hour12: true, minute: '2-digit'})}</div>
 					</div>
 					<div className="flex mb-1">
 						<div>End Date:&nbsp;</div>
-						<div>{new Date(props.event.endDate).toString().slice(4, 15)}</div>
+						<div>{new Date(props.event.endDate).toUTCString().slice(5, 16)}</div>
 					</div>
 					<div className="flex mb-1">
 						<div>Location:&nbsp;</div>

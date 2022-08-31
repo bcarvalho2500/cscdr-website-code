@@ -2,33 +2,34 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 const { connectToDatabase } = require('../../../middleware/database')
+import { ObjectId } from 'mongodb'
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
 	switch(req.method){
-		case 'GET': {
-			return getPeople(req, res)
+		case 'PUT': {
+			return changePerson(req, res)
 		}
-		
-		case 'POST': {
-			return addPeople(req, res)
+
+		case 'DELETE': {
+			return deletePerson(req, res)
 		}
 	}
 }
 
-async function getPeople(req: NextApiRequest, res: NextApiResponse){
+async function changePerson(req: NextApiRequest, res: NextApiResponse){
+	const personId = req.query.personId as string
+	
 	try {
 		let { db } = await connectToDatabase()
-		let people = await db
+		let person = await db
 			.collection('people')
-			.find({})
-			.sort({ name: 1 })
-			.toArray()
-		
+			.updateOne({ _id: ObjectId.createFromHexString(personId)}, {$set: req.body}, { upsert: true})
+			
 		return res.json({
-			data: JSON.parse(JSON.stringify(people)),
+			data: JSON.parse(JSON.stringify(person)),
 			success: true
 		})
 	} catch(error) {
@@ -46,12 +47,17 @@ async function getPeople(req: NextApiRequest, res: NextApiResponse){
 	}
 }
 
-async function addPeople(req: NextApiRequest, res: NextApiResponse){
+async function deletePerson(req: NextApiRequest, res: NextApiResponse) {
+	const personId = req.query.personId as string
+	
 	try {
 		let { db } = await connectToDatabase()
-		await db.collection('people').insertOne(req.body)
+		let person = await db
+			.collection('people')
+			.deleteOne({ _id: ObjectId.createFromHexString(personId)})
+			
 		return res.json({
-			message: "Person added successfully",
+			data: JSON.parse(JSON.stringify(person)),
 			success: true
 		})
 	} catch(error) {
@@ -68,4 +74,3 @@ async function addPeople(req: NextApiRequest, res: NextApiResponse){
 		}
 	}
 }
-

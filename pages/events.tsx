@@ -104,8 +104,8 @@ const Events: NextPage<{ results: any }> = (props) => {
 							<div key={el._id} className='flex my-2 pt-2'>
 								<div className='ml-4 float-right'>
 									{new Date(el.startDate)
-										.toString()
-										.slice(4, 15)}
+										.toUTCString()
+										.slice(5, 16)}
 								</div>
 								<Link href={`/events/${el._id}`}>
 									<a className='ml-10 italic'>{el.title}</a>

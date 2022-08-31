@@ -1,12 +1,14 @@
 import { NextPage } from 'next'
 import { useState } from 'react'
 import { INews } from '../types/inews'
+import ImageSelector from './imageSelector'
 interface Props {
-	handleClose: any
+	handleClose: any,
+	images: string[]
 }
 
 const CreateNewsForm: NextPage<Props> = (props) => {
-	const { handleClose } = props
+	const { handleClose, images } = props
 
 	const [newsData, setNewsData] = useState<INews>({
 		imageUrl: '',
@@ -15,7 +17,7 @@ const CreateNewsForm: NextPage<Props> = (props) => {
 		description: '',
 	})
 
-	const [pictureFile, setpictureFile] = useState()
+	const [pictureFile, setpictureFile] = useState(null)
 
 	const pictureChangeHandler = (event: any) => {
 		setpictureFile(event.target.files[0])
@@ -28,7 +30,10 @@ const CreateNewsForm: NextPage<Props> = (props) => {
 
 	const handleSubmit = async (event: any) => {
 		event.preventDefault()
-		await uploadPictureHandler()
+		
+		if(pictureFile !== null) {
+			await uploadPictureHandler()
+		}
 
 		const endpoint = '/api/news'
 
@@ -125,8 +130,8 @@ const CreateNewsForm: NextPage<Props> = (props) => {
 							type='date'
 						/>
 					</div>
-					<div className='w-full md:w-1/2 px-3'>
-						<label
+					<div className='w-full md:w-1/2 px-3 md:mt-6 flex'>
+						{/* <label
 							className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'
 							htmlFor='picture'
 						>
@@ -137,7 +142,14 @@ const CreateNewsForm: NextPage<Props> = (props) => {
 							type='file'
 							name='picture'
 							onChange={pictureChangeHandler}
+						/> */}
+						<ImageSelector
+							newsData={newsData}
+							setNewsData={setNewsData}
+							pictureChangeHandler={pictureChangeHandler}
+							images={images}
 						/>
+						<p className='flex items-center ml-2'>{newsData.imageUrl}</p>
 					</div>
 				</div>
 				<div className='flex flex-wrap mx-3 mb-6'>

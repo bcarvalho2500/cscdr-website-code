@@ -13,7 +13,7 @@ import Navbar from '../components/navbar'
 import { INews } from '../types/inews'
 import { server } from '../config'
 
-const News: NextPage<{ results: any; mdDescription: any }> = (props) => {
+const News: NextPage<{ newsData: any, imageData: any }> = (props) => {
 	const { user } = useUser()
 	const router = useRouter()
 	const [isRefreshing, setIsRefreshing] = useState(false)
@@ -63,7 +63,7 @@ const News: NextPage<{ results: any; mdDescription: any }> = (props) => {
 
 	useEffect(() => {
 		setIsRefreshing(false)
-	}, [props.results])
+	}, [props.newsData])
 
 	const handleClick = () => {
 		setCreateMode(true)
@@ -100,7 +100,7 @@ const News: NextPage<{ results: any; mdDescription: any }> = (props) => {
 		return (
 			<>
 				<div className='divide-y divide-black'>
-					{props.results
+					{props.newsData
 						.filter((el: any) => {
 							if (selectedYear == 'All') {
 								return el
@@ -221,11 +221,12 @@ const News: NextPage<{ results: any; mdDescription: any }> = (props) => {
 				<hr className='border-black border mb-2' />
 				{createMode || editMode ? (
 					createMode ? (
-						<CreateNewsForm handleClose={handleClose} />
+						<CreateNewsForm handleClose={handleClose} images={props.imageData} />
 					) : (
 						<EditNewsForm
 							handleClose={handleClose}
 							news={newsItem}
+							images={props.imageData}
 						/>
 					)
 				) : (
@@ -238,14 +239,23 @@ const News: NextPage<{ results: any; mdDescription: any }> = (props) => {
 }
 
 export async function getServerSideProps() {
-	const res = await fetch(`${server}/api/news`, { method: 'GET' })
-	const data = await res.json()
-	const results = data.message
+	const [newsRes, imgResults] = await Promise.all([
+		fetch(`${server}/api/news`, { method: 'GET' }),
+		fetch(`${server}/api/images`, { method: 'GET' })
+	])
 
-	for (const obj of results) {
+	const [news, images] = await Promise.all([
+		newsRes.json(),
+		imgResults.json()
+	])
+
+	for (const obj of news.message) {
 		obj.markdown = await serialize(obj.description)
 	}
-	return { props: { results } }
+
+	const newsData = news.message
+	const imageData = images.data
+	return { props: { newsData, imageData } }
 }
 
 export default News

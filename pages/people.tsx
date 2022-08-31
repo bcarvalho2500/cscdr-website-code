@@ -199,7 +199,7 @@ export default People
 export async function getServerSideProps() {
 	const res = await fetch(`${server}/api/people`, { method: 'GET' })
 	const data = await res.json()
-	const peopleData = data.message
+	const peopleData = data.data
 
 	return { props: { peopleData } }
 }
