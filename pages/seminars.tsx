@@ -33,7 +33,7 @@ function IndividualSeminar({ seminar }){
 		seminarColor = 'bg-red-300'
 	}
 	return (
-		<div className='my-2 w-full'>
+		<div className='my-1 w-full'>
 			<div className={`${seminarColor} rounded-md`} {...getToggleProps()}>
 				<div className='grid grid-cols-6 mx-2'>
 					<div className=''>

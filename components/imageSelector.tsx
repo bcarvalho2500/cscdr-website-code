@@ -47,15 +47,22 @@ const ImageSelector: NextPage<Props> = ({ newsData, setNewsData, pictureChangeHa
 								<div className='relative grid grid-cols-2 overflow-y-auto h-96'>
 									{images?.map((image: string) => {
 										return (
-											<div key={image} className='mx-4 my-2 cursor-pointer hover:outline'>
+											<div
+												key={image}
+												className='mx-4 my-2 cursor-pointer hover:outline'
+											>
 												<Image
 													src={`/images/${image}`}
 													layout='intrinsic'
 													width={250}
 													height={175}
+													className='object-contain'
 													alt='Image'
 													onClick={() => {
-														setNewsData({...newsData, imageUrl: image})
+														setNewsData({
+															...newsData,
+															imageUrl: image,
+														})
 														setShowModal(false)
 													}}
 												/>

@@ -4,7 +4,7 @@ import Footer from '../components/footer'
 import Navbar from '../components/navbar'
 
 const Groups: NextPage = () => {
-    return (
+	return (
 		<div className='grid grid-cols-1 md:flex md:flex-col md:min-h-screen'>
 			<Navbar />
 			<main className='flex-auto container mx-auto'>
@@ -152,8 +152,9 @@ const Groups: NextPage = () => {
 								research applications. Applications include
 								energy systems (wave energy converters, wind
 								turbines, fuel atomizers), materials processing
-								(spray coating), and "green" refrigeration
-								systems. Core faculty members for this group:
+								(spray coating), and &quot;green&quot;
+								refrigeration systems. Core faculty members for
+								this group:
 							</p>
 							<div className='flex mt-3'>
 								<ul className='list-disc mx-8'>
@@ -165,7 +166,7 @@ const Groups: NextPage = () => {
 						</div>
 						<div className='grid md:flex min-w-fit min-h-fit my-4 md:my-0'>
 							<iframe
-								src='/GFM_2020_7.mp4'
+								src='https://www.youtube.com/embed/mTpiTkXMGuc'
 								width='350'
 								height='251'
 							></iframe>

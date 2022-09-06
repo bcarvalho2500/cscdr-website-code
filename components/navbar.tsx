@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { useUser } from '@auth0/nextjs-auth0'
 import { useRouter } from 'next/router'
 
-import logo from '../assets/photos/logo-text-only2.png'
+import logo from '../assets/photos/CSCDR Text PLUS.jpg'
 
 const Navbar: NextComponentType = () => {
     const [menuHidden, setMenuHidden] = useState(false)
@@ -19,7 +19,7 @@ const Navbar: NextComponentType = () => {
     return (
 		<div className='bg-black flex-col'>
 			<div className='flex items-center justify-center'>
-				<Image src={ logo }/>
+				<Image src={ logo } height={107} width={700}/>
 			</div>
 			<nav className="bg-black shadow-lg">
 				<div className="max-w-6xl mx-auto px-4">

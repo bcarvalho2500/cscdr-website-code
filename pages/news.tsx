@@ -25,7 +25,9 @@ const News: NextPage<{ newsData: any, imageData: any }> = (props) => {
 		date: new Date().toISOString().slice(0, 10),
 		description: '',
 	})
-	const [selectedYear, setSelectedYear] = useState('All')
+	const [selectedYear, setSelectedYear] = useState(
+		new Date().getFullYear().toString()
+	)
 
 	const yearsOptions = () => {
 		let currentYear = new Date().getFullYear()
@@ -113,13 +115,18 @@ const News: NextPage<{ newsData: any, imageData: any }> = (props) => {
 								return <div>No data to display</div>
 							} else {
 								return (
-									<div className='flex my-2 pt-4' key={el._id}>
-										<div className='flex-none'>
+									<div
+										className='flex my-2 pt-4'
+										key={el._id}
+									>
+										<div className=''>
 											<Image
 												src={`/images/${el.imageUrl}`}
-												width={128}
-												height={112}
+												width={200}
+												height={200}
+												layout='intrinsic'
 												alt='Picture'
+												className='object-contain'
 											/>
 										</div>
 
@@ -208,7 +215,7 @@ const News: NextPage<{ newsData: any, imageData: any }> = (props) => {
 							className=''
 							name='year'
 							options={years}
-							defaultValue={years[0]}
+							defaultValue={years[1]}
 							onChange={handleYearChange}
 							isClearable={false}
 							isSearchable={false}

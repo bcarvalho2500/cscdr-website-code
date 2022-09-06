@@ -28,7 +28,8 @@
     "react-csv": "^2.2.2",
     "react-dom": "18.2.0",
     "react-image-gallery": "^1.2.9",
-    "react-select": "^5.4.0"
+    "react-select": "^5.4.0",
+    "sharp": "^0.30.7"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",

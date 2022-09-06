@@ -1,0 +1,118 @@
+import type { NextPage } from 'next'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import EditPersonForm from '../../components/editPersonForm'
+import FacultyCard from '../../components/facultyCard'
+import Footer from '../../components/footer'
+import Navbar from '../../components/navbar'
+import { server } from '../../config'
+import { IPerson } from '../../types/iperson'
+
+const Faculty: NextPage<{ faculty: IPerson[] }> = ({ faculty }) => {
+	const [personData, setPersonData] = useState<IPerson>({
+		firstName: '',
+		lastName: '',
+		homepageUrl: '',
+		category: '',
+		imageUrl: '',
+		affiliation: '',
+		advisor: '',
+		email: '',
+		position: '',
+		interests: '',
+		department: '',
+		subtitle: '',
+	})
+	const [editMode, setEditMode] = useState(false)
+	const router = useRouter()
+	const [isRefreshing, setIsRefreshing] = useState(false)
+
+	useEffect(() => {
+		setIsRefreshing(false)
+	}, [faculty])
+
+	const refreshData = () => {
+		router.replace(router.asPath)
+		setIsRefreshing(true)
+	}
+
+	const handleEdit = (element: IPerson) => {
+		setEditMode(true)
+		setPersonData(element)
+	}
+
+	const handleClose = () => {
+		setEditMode(false)
+		refreshData()
+	}
+
+	const handleDelete = async (element: IPerson) => {
+		if (
+			confirm(
+				`Are you sure you want to delete\n${element.firstName} ${element.lastName}`
+			)
+		) {
+			const endpoint = `/api/people/${element._id}`
+
+			const options = {
+				method: 'DELETE',
+			}
+
+			const response = await fetch(endpoint, options)
+			const result = await response.json()
+			if (result) {
+				refreshData()
+			}
+		}
+	}
+
+	return (
+		<div className='grid grid-cols-1 md:flex md:flex-col md:min-h-screen bg-gray-100'>
+			<Navbar />
+			<main className='flex-auto container mx-auto'>
+				<div className='flex w-full'>
+					<div className='text-center md:text-left text-2xl font-bold mt-4 w-full'>
+						Faculty
+					</div>
+				</div>
+				<hr className='border-black border mb-2' />
+				{editMode ? (
+					<EditPersonForm
+						person={personData}
+						handleClose={handleClose}
+					/>
+				) : (
+					<>
+						{faculty.map((person) => {
+							return (
+								<FacultyCard
+									key={person._id}
+									person={person}
+									handleEdit={handleEdit}
+									handleDelete={handleDelete}
+								/>
+							)
+						})}
+					</>
+				)}
+			</main>
+			<Footer />
+		</div>
+	)
+}
+
+export default Faculty
+
+export async function getServerSideProps() {
+	const res = await fetch(`${server}/api/people`, { method: 'GET' })
+	const data = await res.json()
+	const peopleData = data.data
+
+	const faculty = peopleData.filter((person: IPerson) => {
+		return (
+			person.category === 'Faculty'
+		)
+	})
+
+	return { props: { faculty } }
+}

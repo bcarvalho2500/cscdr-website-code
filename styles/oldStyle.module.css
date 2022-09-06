@@ -1,0 +1,227 @@
+/******************************************
+UmassD blue: #00337F (PMS 288)
+******************************************/
+
+.main {
+      overflow:auto;
+      padding-bottom: 85px;
+	  text-align: left;
+    }
+
+
+table#container {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table#container tr#header-container td {
+  padding-top: 15px;
+  padding-bottom: 10px;
+  background-color: #000000;
+}
+
+table#container tr#nav-container {
+  background-color: #000000;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+
+table tr td.sinister_container {
+  width: auto;
+  text-align: left;
+}
+table tr td.dexter_container {
+  width: auto;
+}
+
+table tr td.center_container {
+  text-align:center;
+  width: 950px;
+  font-size: 10pt;
+}
+
+table#container tr#nav_container td {
+  margin: 0px;
+  border: 0px;
+}
+
+table#container tr#nav_container td {
+  -moz-box-shadow:    0px 4px 4px -1px #000000;
+  -webkit-box-shadow: 0px 4px 4px -1px #000000;
+  box-shadow:         0px 4px 4px -1px #000000;
+}
+
+table#container tr#nav_container td:first-child {
+  -moz-box-shadow:    4px 4px 4px -1px #000000;
+  -webkit-box-shadow: 4px 4px 4px -1px #000000;
+  box-shadow:         4px 4px 4px -1px #000000;
+}
+
+table#container tr#nav_container td:last-child {
+  -moz-box-shadow:    -4px 4px 4px -1px #000000;
+  -webkit-box-shadow: -4px 4px 4px -1px #000000;
+  box-shadow:         -4px 4px 4px -1px #000000;
+}
+
+table#container tr#content_container td.center-container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: justify;
+  border-collapse: collapse;
+}
+
+table#container tr#footer_container {
+  font-size: 12px;
+}
+
+table#container tr#footer_container td {
+  background-color: #DDDDDD;
+}
+
+table#slider_table tr td.slider-content {
+  width: 400px;
+  border-collapse: collapse;
+  -moz-box-shadow:    2px 2px 8px 0px #000000;
+  -webkit-box-shadow: 2px 2px 8px 0px #000000;
+  box-shadow:         2px 2px 8px 0px #000000;
+  background-color: #BBBBBB;
+}
+
+table#slider_table tr td.noslider-content {
+  padding-left: 20px;
+  font-size: 10pt;
+  vertical-align: top;
+}
+
+.umd_logo {
+  height: 50px;
+  padding-right: 20px;
+}
+
+td#header_cscv_title { 
+  padding: 0px;
+  margin: 0px;
+  background-color: #000000;
+  width: 600px;
+}
+
+table#navcontainer {
+  width: 100%;
+  margin: 0px;
+  border-collapse:collapse;
+  vertical-align:middle;
+}
+
+
+
+/* For other stuff */
+
+div.page_title {
+    font-size: 16pt;
+    font-weight: bold;
+    color: #000000;
+    padding-left: 10px;
+}
+
+hr.page_title {
+    color: #222222;
+    background-color: #222222;
+    width: 100%;
+    height: 2px;
+    margin-bottom: 10px;
+}
+
+
+/* Conference and event styling */
+
+table.conference_table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 0px;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+table tr td.conference_date {
+  padding-top: 5px;
+  width: 170px;
+  vertical-align: top;
+}
+
+table tr td.conference_description {
+  padding-top: 5px;
+}
+
+span.conference_title {
+  font-style: italic;
+}
+
+/* Custom conference and event styling */
+
+div.conference_title {
+  color: red;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 25px;
+}
+
+div.conference_title a {
+  color: red;
+}
+
+div.conference_subtitle {
+  font-size: 20px;
+}
+
+table.conference_agenda {
+  width: 100%;
+  border: 0px;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  background-color: #eee;
+  margin-bottom: 30px;
+}
+
+table.conference_agenda td.time {
+  vertical-align: top;
+  padding-left: 5px;
+  width: 100px;
+}
+
+table.conference_agenda td.description {
+  vertical-align: top;
+  text-align: left;
+}
+
+table.conference_agenda td.speaker {
+  vertical-align: top;
+  font-weight: bold;
+  width: 150px;
+}
+
+table.conference_agenda td.affiliation {
+  vertical-align: top;
+  width: 350px;
+  font-style: italic;
+}
+
+table.conference_agenda tr.header {
+  border-bottom: 1px solid black;
+}
+
+table.conference_agenda tr.entry td {
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+table.conference_agenda tr.header td {
+  font-weight: bold;
+  font-size: 9pt;
+  font-style: normal;
+}
+
+div.conference_agenda_title {
+  font-size: 12pt;
+  margin-bottom: 5px;
+}
